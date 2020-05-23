@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : UnitBehaviour
+public interface IDamageable
 {
+    void TakeDamage(int value);
 }
