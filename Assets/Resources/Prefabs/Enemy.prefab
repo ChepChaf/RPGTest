@@ -106,4 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e476f39754d9ad345bac9b958df7a8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   stats: {fileID: 11400000, guid: 97477216816821b4293297ed1a6d5230, type: 2}
+  enemy: {fileID: 0}

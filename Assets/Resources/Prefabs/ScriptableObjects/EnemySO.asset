@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: EnemySO
   m_EditorClassIdentifier: 
   health: 100
+  attack: 7

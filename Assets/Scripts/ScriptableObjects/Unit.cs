@@ -6,4 +6,5 @@ using UnityEngine;
 public class Unit : ScriptableObject
 {
     public int health;
+    public int attack;
 }

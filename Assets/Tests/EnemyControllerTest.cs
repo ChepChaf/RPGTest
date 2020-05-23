@@ -16,11 +16,11 @@ namespace Tests
                 Resources.Load<GameObject>("Prefabs/Enemy"));
             EnemyController ec = enemy.GetComponent<EnemyController>();
 
-            int initialHealth = ec.stats.health;
+            int initialHealth = ec.Health;
 
             ec.TakeDamage(20);
 
-            Assert.AreEqual(initialHealth - 20, ec.stats.health);
+            Assert.AreEqual(initialHealth - 20, ec.Health);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use

@@ -8,19 +8,47 @@ namespace Tests
 {
     public class PlayerControllerTest
     {
+        GameObject player;
+        GameObject enemy;
+
+        PlayerController pc;
+        EnemyController ec;
+
+        [SetUp]
+        public void Setup()
+        {
+            player = MonoBehaviour.Instantiate(
+                Resources.Load<GameObject>("Prefabs/Player"));
+            pc = player.GetComponent<PlayerController>();
+           
+            enemy = MonoBehaviour.Instantiate(
+                Resources.Load<GameObject>("Prefabs/Enemy"));
+            ec = enemy.GetComponent<EnemyController>();
+
+            pc.enemy = ec;
+
+            pc.initActions();
+        }
+
         // A Test behaves as an ordinary method
         [Test]
-        public void TakeDamagetest()
+        public void TakeDamageTest()
         {
-            GameObject player = MonoBehaviour.Instantiate(
-                Resources.Load<GameObject>("Prefabs/Player"));
-            PlayerController pc = player.GetComponent<PlayerController>();
-
-            int initialHealth = pc.stats.health;
+            int initialHealth = pc.Health;
 
             pc.TakeDamage(20);
 
-            Assert.AreEqual(initialHealth - 20, pc.stats.health);
+            Assert.AreEqual(initialHealth - 20, pc.Health);
+        }
+
+        [Test]
+        public void onClickAttackBtnTest()
+        {
+            int initialHealth = ec.Health;
+
+            pc.onAttackBtnClick();
+
+            Assert.AreEqual(initialHealth - pc.Attack, ec.Health);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
