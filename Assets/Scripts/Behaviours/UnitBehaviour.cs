@@ -19,6 +19,11 @@ public class UnitBehaviour : MonoBehaviour, IDamageable
 
     protected void Start()
     {
+        InitStats();
+    }
+
+    public void InitStats()
+    {
         health = stats.health;
         attack = stats.attack;
     }

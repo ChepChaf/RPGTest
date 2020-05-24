@@ -6,26 +6,29 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class PlayerControllerTest
+    public class PlayerBehaviourTest
     {
         GameObject player;
         GameObject enemy;
 
-        PlayerController pc;
-        EnemyController ec;
+        PlayerBehaviour pc;
+        EnemyBehaviour ec;
 
         [SetUp]
         public void Setup()
         {
             player = MonoBehaviour.Instantiate(
                 Resources.Load<GameObject>("Prefabs/Player"));
-            pc = player.GetComponent<PlayerController>();
+            pc = player.GetComponent<PlayerBehaviour>();
            
             enemy = MonoBehaviour.Instantiate(
                 Resources.Load<GameObject>("Prefabs/Enemy"));
-            ec = enemy.GetComponent<EnemyController>();
+            ec = enemy.GetComponent<EnemyBehaviour>();
 
             pc.enemy = ec;
+
+            pc.InitStats();
+            ec.InitStats();
 
             pc.initActions();
         }
@@ -54,7 +57,7 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator PlayerControllerTestWithEnumeratorPasses()
+        public IEnumerator PlayerBehaviourTestWithEnumeratorPasses()
         {
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : UnitBehaviour
+public class PlayerBehaviour : UnitBehaviour
 {
     AttackAction attackAction;
 
     // TODO: This will be selectable in the future
-    public EnemyController enemy;
+    public EnemyBehaviour enemy;
 
     private new void Start()
     {

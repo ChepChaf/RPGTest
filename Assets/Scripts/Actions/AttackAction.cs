@@ -6,6 +6,6 @@ public class AttackAction : IAction
 {
     public void Do(UnitBehaviour actor, UnitBehaviour target)
     {
-        target.TakeDamage(target.Attack);
+        target.TakeDamage(actor.Attack);
     }
 }
